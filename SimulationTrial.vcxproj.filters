@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Config">
+      <UniqueIdentifier>{4966d432-4b2b-457a-a42c-59795d88f209}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GUI">
+      <UniqueIdentifier>{195b1715-e110-44d7-b57b-3e5fe8ce524c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GUI\Include">
+      <UniqueIdentifier>{03510991-5993-4259-ab22-9a84d93df532}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GUI\Library">
+      <UniqueIdentifier>{3c73e187-e233-48f4-be77-d82358a860ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Simulation">
+      <UniqueIdentifier>{bbf090c5-dfd0-41d8-89f2-b58a9ae3ad34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KeyBoard">
+      <UniqueIdentifier>{07faf13e-5796-4355-a36c-bddf03d978f3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Config\GUIConf.c">
+      <Filter>Config</Filter>
+    </ClCompile>
+    <ClCompile Include="Config\LCDConf.c">
+      <Filter>Config</Filter>
+    </ClCompile>
+    <ClCompile Include="Config\SIMConf.c">
+      <Filter>Config</Filter>
+    </ClCompile>
+    <ClCompile Include="Simulation\WinMain.c">
+      <Filter>Simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="Keyboard\KeyBoardDLG.c">
+      <Filter>KeyBoard</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Config\GUIConf.h">
+      <Filter>Config</Filter>
+    </ClInclude>
+    <ClInclude Include="Config\LCDConf.h">
+      <Filter>Config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Program Files\Microsoft Visual Studio\VC98\Include\BASETSD.H">
+      <Filter>Simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\BUTTON.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\BUTTON_Private.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\CHECKBOX.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\CHECKBOX_Private.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\CHOOSECOLOR.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\CHOOSEFILE.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\DIALOG.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\DIALOG_Intern.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\DROPDOWN.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\DROPDOWN_Private.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\EDIT.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\EDIT_Private.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\FRAMEWIN.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\FRAMEWIN_Private.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\Global.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\GRAPH.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\GRAPH_Private.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\GUI.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\GUI_ARRAY.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\GUI_ARRAY_Private.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\GUI_BMP_Private.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\GUI_ConfDefaults.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\GUI_Debug.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\GUI_FontIntern.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\GUI_GIF_Private.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\GUI_HOOK.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\GUI_JPEG_Private.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\GUI_Private.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\GUI_SetOrientation.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\GUI_SetOrientationCX.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\GUI_SIM_Win32.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\GUI_Type.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\GUI_Version.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\GUI_VNC.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\HEADER.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\HEADER_Private.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\ICONVIEW.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\ICONVIEW_Private.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\IMAGE.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\IMAGE_Private.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\LCD.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\LCD_ConfDefaults.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\LCD_Private.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\LCD_Protected.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\LCD_SIM.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\LCDSIM_Private.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\LISTBOX.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\LISTBOX_Private.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\LISTVIEW.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\LISTVIEW_Private.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\LISTWHEEL.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\LISTWHEEL_Private.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\MENU.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\MENU_Private.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\MESSAGEBOX.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\MULTIEDIT.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\MULTIPAGE.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\MULTIPAGE_Private.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\PROGBAR.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\PROGBAR_Private.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\RADIO.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\RADIO_Private.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\SCROLLBAR.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\SCROLLBAR_Private.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\SIM.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\SIM_GetRegions.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\SLIDER.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\SLIDER_Private.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\SPINBOX.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\SPINBOX_Private.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\TEXT.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\TEXT_Private.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\TREEVIEW.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\TREEVIEW_Private.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\WIDGET.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\WINDOW_Private.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\WM.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\WM_GUI.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\Include\WM_Intern.h">
+      <Filter>GUI\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Keyboard\KeyBoard.h">
+      <Filter>KeyBoard</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="GUI\Library\GUI.lib">
+      <Filter>GUI\Library</Filter>
+    </Library>
+    <Library Include="Simulation\GUISim.lib">
+      <Filter>Simulation</Filter>
+    </Library>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Simulation\Simulation.res">
+      <Filter>Simulation</Filter>
+    </Resource>
+  </ItemGroup>
+</Project>
