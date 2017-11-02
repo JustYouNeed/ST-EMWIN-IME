@@ -175,7 +175,8 @@ static void _cbKeyBoard_En(WM_MESSAGE * pMsg) {
 
 	if (WM_NOTIFICATION_RELEASED == NCode)
 	{
-		GUI_SendKeyMsg(KeyValue[KEY_CAP_FLAG][Id - 1 - GUI_ID_USER], 1);
+		if (ID_BUTTON_123 != Id)
+			GUI_SendKeyMsg(KeyValue[KEY_CAP_FLAG][Id - 1 - GUI_ID_USER], 1);
 		switch (Id)
 		{
 			case ID_BUTTON_SHIFT:
