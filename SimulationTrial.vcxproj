@@ -12,7 +12,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{8F47D995-5A9F-4284-80A7-CC053C3C2DF9}</ProjectGuid>
-    <ProjectName>键盘调试</ProjectName>
+    <ProjectName>ST-EMWIN-IME</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
