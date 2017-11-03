@@ -1,4 +1,4 @@
-﻿Build started 11/3/2017 8:29:50 PM.
+﻿Build started 11/3/2017 9:37:22 PM.
      1>Project "E:\学习资料\STemWim\EMWIN实例\全键盘输入法\键盘调试-PC\SimulationTrial.vcxproj" on node 2 (Build target(s)).
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(381,5): warning MSB8028: The intermediate directory (E:\学习资料\STemWim\EMWIN实例\全键盘输入法\键盘调试-PC\Output\Debug\) contains files shared from another project (键盘调试.vcxproj).  This can lead to incorrect clean and rebuild behavior.
      1>ClCompile:
@@ -21,4 +21,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.70
+Time Elapsed 00:00:01.31
