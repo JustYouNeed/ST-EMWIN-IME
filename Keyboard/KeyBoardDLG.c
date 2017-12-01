@@ -1,8 +1,10 @@
 # include "KeyBoard.h"
 
-
+WM_HWIN hWin_IME;
 WM_HWIN hKeyBoard_En;
 WM_HWIN hKeyBoard_Num;
+unsigned char IsIMEHideFlag = 0;
+
 static unsigned char KEY_CAP_FLAG = 0;
 
 const char *KeyTitle[][41] =
@@ -117,13 +119,10 @@ static const GUI_WIDGET_CREATE_INFO _aDialogCreate_En[] = {
 	{ BUTTON_CreateIndirect, ".", KEY_DOT, KEY_DOT_POS_X, KEY_DOT_POS_Y, KEY_DOT_LENGTH, KEY_DOT_WIDTH, 0, 0x0, 0 },
 	{ BUTTON_CreateIndirect, "symbol", KEY_CE, KEY_CE_POS_X, KEY_CE_POS_Y, KEY_CE_LENGTH, KEY_CE_WIDTH, 0, 0x0, 0 },
 	{ BUTTON_CreateIndirect, "Enter", KEY_ENTER, KEY_ENTER_POS_X, KEY_ENTER_POS_Y, KEY_ENTER_LENGTH, KEY_ENTER_WIDTH, 0, 0x0, 0 },
-	// USER START (Optionally insert additional widgets)
-	// USER END
 };
 
 static void _cbButtonEnglish(WM_MESSAGE * pMsg)
 {
-	WM_HWIN hWin;
 	GUI_RECT CilentRect;
 	long ID = 0;
 	switch (pMsg->MsgId)
@@ -176,51 +175,45 @@ static void _cbKeyBoard_En(WM_MESSAGE * pMsg) {
 	int i = 0;
 
 	switch (pMsg->MsgId) {
-	case WM_PAINT:_PaintKeyBoardWin();
-		break;
+	case WM_PAINT:_PaintKeyBoardWin();break;
 	case WM_INIT_DIALOG:_InitKeyBoardWindow(pMsg); break;
-
 	case WM_NOTIFY_PARENT:
 		Id = WM_GetId(pMsg->hWinSrc);
 		NCode = pMsg->Data.v;
 
 		if (WM_NOTIFICATION_RELEASED == NCode)
 		{
-			if (KEY_NUM != Id && KEY_TABLE != Id && KEY_METHON_CH != Id
-				&& KEY_METHON_EN != Id && KEY_CLOSE != Id && KEY_LEFT != Id
-				&& KEY_RIGHT != Id && KEY_SHIFT != Id && KEY_CE != Id)
-				GUI_SendKeyMsg(KeyValue[KEY_CAP_FLAG][Id - 1 - GUI_ID_USER], 1);
 			switch (Id)
 			{
-			case KEY_SHIFT:
-				if (KEY_CAP_FLAG == 0)KEY_CAP_FLAG = 1;
-				else  KEY_CAP_FLAG = 0;
-				WM_InvalidateWindow(pMsg->hWin);
-				break;
-			case KEY_SYMBOL:
-			{
-							   if (KEY_CAP_FLAG != 2) KEY_CAP_FLAG = 2;
-							   else KEY_CAP_FLAG = 0;
-							   WM_InvalidateWindow(pMsg->hWin);
-			}break;
-			case KEY_NUM:
-			{
-							if (KEY_CAP_FLAG != 3)	KEY_CAP_FLAG = 3;
-							else KEY_CAP_FLAG = 0;
-							WM_InvalidateWindow(pMsg->hWin);
-			}break;
-			//case KEY_CE:
-			//{
-			//	if (KEY_CAP_FLAG == 0)KEY_CAP_FLAG = 1;
-			//	else  KEY_CAP_FLAG = 0;
-			//	WM_InvalidateWindow(pMsg->hWin);
-			//	break;
-			//}break;
+				case KEY_SHIFT:
+					if (KEY_CAP_FLAG == 0)KEY_CAP_FLAG = 1;
+					else  KEY_CAP_FLAG = 0;
+					WM_InvalidateWindow(pMsg->hWin);
+					break;
+				case KEY_SYMBOL:
+				{
+					if (KEY_CAP_FLAG != 2) KEY_CAP_FLAG = 2;
+					else KEY_CAP_FLAG = 0;
+					WM_InvalidateWindow(pMsg->hWin);
+				}break;
+				case KEY_NUM:
+				{
+					if (KEY_CAP_FLAG != 3)	KEY_CAP_FLAG = 3;
+					else KEY_CAP_FLAG = 0;
+					WM_InvalidateWindow(pMsg->hWin);
+				}break;
+				/*case KEY_TABLE:GUI_SendKeyMsg(GUI_KEY_TAB, 1); break;*/
+				case KEY_CLOSE:WM_HideWindow(hWin_IME); IsIMEHideFlag = 1; break;
+				//case KEY_LEFT:GUI_SendKeyMsg(GUI_KEY_LEFT, 1); break;
+				//case KEY_RIGHT:GUI_SendKeyMsg(GUI_KEY_RIGHT, 1); break;
+				case KEY_CE:break;
+				case KEY_METHON_CH:break;
+				case KEY_METHON_EN:break;
+				default:GUI_SendKeyMsg(KeyValue[KEY_CAP_FLAG][Id - 1 - GUI_ID_USER], 1); break;
 			}
+			
 		}
-	default:
-		WM_DefaultProc(pMsg);
-		break;
+	default: WM_DefaultProc(pMsg); break;
 	}
 }
 
@@ -228,21 +221,11 @@ static void _cbKeyBoard_En(WM_MESSAGE * pMsg) {
 void GUI_SetSkin(void)
 {
 	BUTTON_SetDefaultSkin(BUTTON_SKIN_FLEX);
-	CHECKBOX_SetDefaultSkin(CHECKBOX_SKIN_FLEX);
-	DROPDOWN_SetDefaultSkin(DROPDOWN_SKIN_FLEX);
 	FRAMEWIN_SetDefaultSkin(FRAMEWIN_SKIN_FLEX);
-	HEADER_SetDefaultSkin(HEADER_SKIN_FLEX);
-	MENU_SetDefaultSkin(MENU_SKIN_FLEX);
-	MULTIPAGE_SetDefaultSkin(MULTIPAGE_SKIN_FLEX);
-	PROGBAR_SetDefaultSkin(PROGBAR_SKIN_FLEX);
-	RADIO_SetDefaultSkin(RADIO_SKIN_FLEX);
-	SCROLLBAR_SetDefaultSkin(SCROLLBAR_SKIN_FLEX);
-	SLIDER_SetDefaultSkin(SLIDER_SKIN_FLEX);
-	SPINBOX_SetDefaultSkin(SPINBOX_SKIN_FLEX);
 }
 
 
-static void _cbEditEindow(WM_MESSAGE* pMsg)
+static void _cbHBKWin(WM_MESSAGE* pMsg)
 {
 	int Id;
 	int NCode;
@@ -250,36 +233,45 @@ static void _cbEditEindow(WM_MESSAGE* pMsg)
 	switch (pMsg->MsgId)
 	{
 	case WM_PAINT:GUI_Clear(); break;
-	case WM_NOTIFICATION_CLICKED:
-		if (hKeyBoard_En != 0)
-		{
-			WM_DeleteWindow(hKeyBoard_En);
-			hKeyBoard_En = 0;
-		}break;
 	case WM_NOTIFY_PARENT:
 		Id = WM_GetId(pMsg->hWinSrc);
 		NCode = pMsg->Data.v;
-		switch (Id)
+		if (NCode == WM_NOTIFICATION_RELEASED)
 		{
-		case GUI_ID_EDIT0:
-			switch (NCode)
+			switch (Id)
 			{
-			case WM_NOTIFICATION_GOT_FOCUS:
-				if (hKeyBoard_En == 0) CreateKeyBoard();
-				//	break;
+			case GUI_ID_MULTIEDIT1:
+				if (hWin_IME == NULL)
+				{
+					CreateKeyBoard();
+					IsIMEHideFlag = 0;
+				}
+				if (IsIMEHideFlag == 1)
+				{
+					WM_ShowWindow(hWin_IME);
+				}
 				break;
-
-			}break;
-
-		}break;
-
+			case GUI_ID_MULTIEDIT0:				
+				if (hWin_IME == NULL)
+				{
+					CreateKeyBoard();
+					IsIMEHideFlag = 0;
+				}
+				if (IsIMEHideFlag == 1)
+				{
+					WM_ShowWindow(hWin_IME);
+				}
+				break;
+				default:break;
+			}
+		}
 	default:WM_DefaultProc(pMsg); break;
 	}
 }
 
 
 void CreateKeyBoard(void) {
-	hKeyBoard_En = GUI_CreateDialogBox(_aDialogCreate_En, GUI_COUNTOF(_aDialogCreate_En), _cbKeyBoard_En, WM_HBKWIN, 0, 0);
+	hWin_IME = GUI_CreateDialogBox(_aDialogCreate_En, GUI_COUNTOF(_aDialogCreate_En), _cbKeyBoard_En, WM_HBKWIN, 0, 0);
 }
 
 void MainTask(void) {
@@ -287,13 +279,11 @@ void MainTask(void) {
 	GUI_Init();
 	WM_SetCreateFlags(WM_CF_MEMDEV);  // Use memory devices on all windows to avoid flicker
 	GUI_SetSkin();
-	hWin = EDIT_CreateEx(20, 20, 100, 40, 0, WM_CF_SHOW, 0x00, GUI_ID_EDIT0, 512);
-	EDIT_SetText(hWin, "sdfads");
-	//	EDIT_CreateEx(200, 20, 100, 40, 0, WM_CF_SHOW, 0x00, GUI_ID_EDIT1, 512);
-	MULTIEDIT_CreateEx(600, 100, 300, 100, WM_HBKWIN, WM_CF_SHOW, 0x0, GUI_ID_MULTIEDIT0, 1024, "Test");
-	//	BUTTON_CreateEx(300, 200, 80, 40, WM_HBKWIN, WM_CF_SHOW, 0x0, GUI_ID_BUTTON9);
-	WM_SetCallback(WM_HBKWIN, _cbEditEindow);
-	//	CreateKeyBoard();
+
+	MULTIEDIT_CreateEx(10, 10, 350, 200, WM_HBKWIN, WM_CF_SHOW, 0x0, GUI_ID_MULTIEDIT0, 1024, "Test");
+	MULTIEDIT_CreateEx(400, 10, 350, 200, WM_HBKWIN, WM_CF_SHOW, 0x0, GUI_ID_MULTIEDIT1, 1024, "Test");
+
+	WM_SetCallback(WM_HBKWIN, _cbHBKWin);
 	while (1)
 	{
 		GUI_Delay(100);

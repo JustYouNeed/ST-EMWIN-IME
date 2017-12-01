@@ -4,7 +4,15 @@
 # include "WM.h"
 # include "DIALOG.h" 
 
+extern unsigned char IsIMEHideFlag;
+extern WM_HWIN hWin_IME;
+extern WM_HWIN hKeyBoard_En;
+extern WM_HWIN hKeyBoard_Num;
 
+typedef void(*pCallBackFun)(WM_MESSAGE *pMsg);
+
+void CreateNumBoard(void);
+void CreateKeyBoard(void);
 
 
 # define KEY_FIRST_LINE_POS_Y	0
@@ -20,7 +28,7 @@
 # define WINDOW_IME					(GUI_ID_USER + 42)
 
 # define KEY_TABLE					(GUI_ID_USER + 1)
-# define KEY_TABLE_CODE				9
+# define KEY_TABLE_CODE				GUI_KEY_TAB
 # define KEY_TABLE_LENGTH			130
 # define KEY_TABLE_WIDTH				50
 # define KEY_TABLE_POS_X				0
@@ -44,14 +52,14 @@
 
 
 # define KEY_LEFT					(GUI_ID_USER + 4)
-# define KEY_LEFT_CODE				37
+# define KEY_LEFT_CODE				GUI_KEY_LEFT
 # define KEY_LEFT_LENGHT				130
 # define KEY_LEFT_WIDTH				50
 # define KEY_LEFT_POS_X				(KEY_METHON_EN_POS_X + KEY_METHON_EN_LENGTH + 4)
 # define KEY_LEFT_POS_Y				KEY_FIRST_LINE_POS_Y
 
 # define KEY_RIGHT					(GUI_ID_USER + 5)
-# define KEY_RIGHT_CODE				39
+# define KEY_RIGHT_CODE				GUI_KEY_RIGHT
 # define KEY_RIGHT_LENGHT			130
 # define KEY_RIGHT_WIDTH				50
 # define KEY_RIGHT_POS_X				(KEY_LEFT_POS_X + KEY_LEFT_LENGHT + 4)
@@ -418,11 +426,4 @@
 #define ID_WINDOW_1 (GUI_ID_USER + 62)
 
 
-extern WM_HWIN hKeyBoard_En;
-extern WM_HWIN hKeyBoard_Num;
-
-typedef void(*pCallBackFun)(WM_MESSAGE *pMsg);
-
-void CreateNumBoard(void);
-void CreateKeyBoard(void);
 # endif
